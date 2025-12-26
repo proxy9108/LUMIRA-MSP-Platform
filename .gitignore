@@ -1,0 +1,57 @@
+# Environment & Configuration
+.env
+.env.local
+*.local.php
+config.local.php
+
+# Dependencies
+vendor/
+node_modules/
+
+# IDE & Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Logs
+*.log
+logs/
+error.log
+access.log
+debug.log
+
+# Database
+*.sql.gz
+*.sql.backup
+backups/
+
+# Temporary files
+tmp/
+temp/
+cache/
+*.tmp
+
+# OS Files
+Thumbs.db
+desktop.ini
+
+# Uploaded files (if any)
+uploads/*
+!uploads/.gitkeep
+
+# Session files
+sessions/*
+!sessions/.gitkeep
+
+# Build files
+dist/
+build/
+
+# Test files
+test-*.php
+debug-*.php
+phpunit.xml
+.phpunit.result.cache

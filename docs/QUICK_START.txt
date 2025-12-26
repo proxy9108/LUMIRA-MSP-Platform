@@ -1,0 +1,122 @@
+═══════════════════════════════════════════════════════════════════════════
+                    LUMIRA WEBSITE - QUICK START GUIDE
+═══════════════════════════════════════════════════════════════════════════
+
+📂 PROJECT FOLDER
+C:\Users\Administrator\Documents\nginx-1.28.0\nginx-1.28.0\html
+
+═══════════════════════════════════════════════════════════════════════════
+🌐 WEBSITE URLS
+═══════════════════════════════════════════════════════════════════════════
+
+Homepage:    http://localhost/
+             http://localhost/index.php
+
+Products:    http://localhost/products.php
+Cart:        http://localhost/cart.php
+Checkout:    http://localhost/checkout.php
+Services:    http://localhost/services.php
+Admin:       http://localhost/admin.php
+
+═══════════════════════════════════════════════════════════════════════════
+🔐 CREDENTIALS
+═══════════════════════════════════════════════════════════════════════════
+
+Admin Panel Password: Admin@2025!
+
+Database (PostgreSQL):
+  Host: 10.0.1.200
+  Port: 5432
+  Name: LUMIRA
+  User: admin
+  Pass: StrongPassword123!
+
+═══════════════════════════════════════════════════════════════════════════
+💻 EDITING FILES IN VS CODE
+═══════════════════════════════════════════════════════════════════════════
+
+1. Double-click: LUMIRA.code-workspace
+
+   OR
+
+2. Open VS Code and:
+   File → Open Workspace from File
+   Navigate to: C:\Users\Administrator\Documents\nginx-1.28.0\nginx-1.28.0\html
+   Select: LUMIRA.code-workspace
+
+═══════════════════════════════════════════════════════════════════════════
+📝 KEY FILES TO EDIT
+═══════════════════════════════════════════════════════════════════════════
+
+MAIN PAGES:
+├─ index.php          - Homepage
+├─ products.php       - Product catalog
+├─ cart.php           - Shopping cart
+├─ checkout.php       - Order processing
+├─ services.php       - Services & ticket form
+└─ admin.php          - Admin dashboard
+
+CONFIGURATION:
+├─ inc/config.php     - Database & site settings
+├─ inc/db.php         - Database connection
+└─ inc/functions.php  - Helper functions
+
+STYLING:
+└─ assets/style.css   - All website styles
+
+DATABASE:
+├─ schema.sql         - Database structure
+├─ seed.sql           - Seed data
+└─ init-database.ps1  - Reinitialize DB
+
+═══════════════════════════════════════════════════════════════════════════
+🔧 COMMON TASKS
+═══════════════════════════════════════════════════════════════════════════
+
+CHANGE SITE NAME:
+  Edit: inc/config.php
+  Line: define('SITE_NAME', 'LUMIRA');
+
+CHANGE ADMIN PASSWORD:
+  Edit: inc/config.php
+  Line: define('ADMIN_PASS', 'Admin@2025!');
+
+ADD NEW PRODUCT:
+  1. Access database or use admin SQL
+  2. INSERT INTO products (name, description, price_cents) VALUES (...);
+
+UPDATE STYLING:
+  Edit: assets/style.css
+  Changes appear immediately (refresh browser)
+
+RESET DATABASE:
+  Run: powershell -File init-database.ps1
+
+═══════════════════════════════════════════════════════════════════════════
+🚀 WORKFLOW
+═══════════════════════════════════════════════════════════════════════════
+
+1. Open LUMIRA.code-workspace in VS Code
+2. Edit PHP files
+3. Save changes (Ctrl+S)
+4. Refresh browser - changes are live immediately!
+5. No build step required
+
+═══════════════════════════════════════════════════════════════════════════
+⚠️ IMPORTANT NOTES
+═══════════════════════════════════════════════════════════════════════════
+
+DELETE AFTER TESTING:
+  - dbtest.php (database connection test file)
+
+OLD DEMO FILES:
+  - Moved to: old_demo_archive/
+  - Can be deleted if not needed
+
+═══════════════════════════════════════════════════════════════════════════
+📚 FULL DOCUMENTATION
+═══════════════════════════════════════════════════════════════════════════
+
+See: LUMIRA_DEPLOYMENT_SUMMARY.txt
+
+═══════════════════════════════════════════════════════════════════════════

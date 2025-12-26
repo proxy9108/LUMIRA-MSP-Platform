@@ -1,0 +1,34 @@
+# Instructions to Fix PostgreSQL Authentication for hMailServer
+# Run these commands on the PostgreSQL server (10.0.1.200)
+
+## Option 1: Add MD5 entry for hmailserver user in pg_hba.conf
+
+1. On the PostgreSQL server (10.0.1.200), locate and edit the file:
+   C:\Program Files\PostgreSQL\18\data\pg_hba.conf
+
+2. Add this line BEFORE the existing host entries (near the top of the file):
+
+   host    hmailserver    hmailserver    10.0.1.100/32    md5
+
+3. Save the file
+
+4. Restart PostgreSQL service:
+   - Open Services (services.msc)
+   - Find "postgresql-x64-18"
+   - Right-click → Restart
+
+## Option 2: Use 'postgres' user instead (simpler)
+
+If you have access to the database server, you can use the 'postgres' superuser account directly:
+
+In hMailServer wizard:
+- Database server address: 10.0.1.200
+- Port: 5432
+- Database name: hmailserver
+- Username: postgres
+- Password: StrongPassword123
+
+This will work because 'postgres' user is already configured with trust/scram authentication.
+
+## Recommended: Option 2 (use postgres user)
+It's simpler and will work immediately without needing to edit config files.

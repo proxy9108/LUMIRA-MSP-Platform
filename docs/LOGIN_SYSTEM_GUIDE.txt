@@ -1,0 +1,126 @@
+═══════════════════════════════════════════════════════════════════════════
+                    LUMIRA - NEW LOGIN SYSTEM GUIDE
+═══════════════════════════════════════════════════════════════════════════
+
+🌐 WEBSITE STATUS
+═══════════════════════════════════════════════════════════════════════════
+
+✅ Website is UP and RUNNING at: http://localhost/
+
+═══════════════════════════════════════════════════════════════════════════
+🔐 NEW LOGIN SYSTEM
+═══════════════════════════════════════════════════════════════════════════
+
+The "Admin" tab has been replaced with "Login" tab.
+
+All users (customers and admins) now use the same login portal:
+  http://localhost/login.php
+
+After login, users are automatically redirected based on their role:
+  • ADMIN → Admin Dashboard (http://localhost/dashboard-admin.php)
+  • CUSTOMER → Customer Dashboard (http://localhost/dashboard-customer.php)
+
+═══════════════════════════════════════════════════════════════════════════
+👤 DEFAULT ADMIN ACCOUNT
+═══════════════════════════════════════════════════════════════════════════
+
+Email:    admin@lumira.local
+Password: Admin@2025!
+
+═══════════════════════════════════════════════════════════════════════════
+📋 HOW TO TEST
+═══════════════════════════════════════════════════════════════════════════
+
+1. TEST ADMIN LOGIN:
+   a. Go to: http://localhost/login.php
+   b. Login with: admin@lumira.local / Admin@2025!
+   c. You should see the Admin Dashboard with:
+      - Statistics (total orders, tickets, customers)
+      - All orders from all customers
+      - All service tickets
+      - All registered users
+
+2. CREATE CUSTOMER ACCOUNT:
+   a. Go to: http://localhost/login.php?register
+   b. Fill in the registration form
+   c. After registration, login with your new account
+   d. You should see Customer Dashboard with:
+      - Your account information
+      - Only YOUR orders
+      - Only YOUR service tickets
+
+3. TEST CUSTOMER FLOW:
+   a. While logged in as customer:
+      - Browse products and add to cart
+      - Complete checkout (your email will auto-fill)
+      - Submit service request (your email will auto-fill)
+      - View your orders and tickets in dashboard
+
+═══════════════════════════════════════════════════════════════════════════
+🆕 NEW FILES CREATED
+═══════════════════════════════════════════════════════════════════════════
+
+login.php               - Unified login/registration portal
+dashboard-customer.php  - Customer dashboard (view own orders/tickets)
+dashboard-admin.php     - Admin dashboard (view all data + statistics)
+test-password.php      - Utility to verify/fix admin password hash
+
+═══════════════════════════════════════════════════════════════════════════
+🗄️ DATABASE CHANGES
+═══════════════════════════════════════════════════════════════════════════
+
+NEW TABLE: users
+  - id (serial primary key)
+  - email (unique)
+  - password_hash (bcrypt hashed)
+  - full_name
+  - role ('customer' or 'admin')
+  - created_at
+
+The database has been reinitialized with the new users table.
+
+═══════════════════════════════════════════════════════════════════════════
+🔧 NEW FUNCTIONS (inc/functions.php)
+═══════════════════════════════════════════════════════════════════════════
+
+get_logged_in_user()    - Get current user data
+is_logged_in()          - Check if user is logged in
+is_user_admin()         - Check if user is admin
+is_user_customer()      - Check if user is customer
+user_login()            - Login user
+user_register()         - Register new user
+user_logout()           - Logout user
+get_user_orders()       - Get user's orders
+get_user_tickets()      - Get user's service tickets
+
+═══════════════════════════════════════════════════════════════════════════
+🎨 NAVIGATION CHANGES
+═══════════════════════════════════════════════════════════════════════════
+
+OLD: Home | Products | Services | Cart | Admin
+NEW: Home | Products | Services | Cart | Login
+
+When logged in, dashboards show "Logout" option in navigation.
+
+═══════════════════════════════════════════════════════════════════════════
+⚠️ TROUBLESHOOTING
+═══════════════════════════════════════════════════════════════════════════
+
+IF ADMIN LOGIN DOESN'T WORK:
+  Visit: http://localhost/test-password.php
+  This will check and fix the admin password hash if needed.
+
+IF WEBSITE SHOWS 500 ERROR:
+  Check: C:\Users\Administrator\Documents\nginx-1.28.0\nginx-1.28.0\logs\error.log
+
+IF DATABASE NOT INITIALIZED:
+  Run: powershell -File init-database.ps1
+
+═══════════════════════════════════════════════════════════════════════════
+📂 OLD FILES (Can be deleted)
+═══════════════════════════════════════════════════════════════════════════
+
+admin.php              - Old admin panel (no longer linked)
+generate-password-hash.php - Utility script (can delete after testing)
+
+═══════════════════════════════════════════════════════════════════════════
