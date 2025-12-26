@@ -3,17 +3,78 @@
 A comprehensive IT service management platform for managed service providers (MSPs) built with PHP and PostgreSQL.
 
 ## Features
+### 🎫 Support Ticket System
+  - Multi-level ticketing with 9 categories (Hardware, Software, Network, Email, Security, etc.)
+  - 5 priority levels (Low, Normal, High, Critical, Emergency)
+  - Automatic ticket routing and assignment
+  - Email notifications for ticket updates
+  - Ticket lifecycle management (New → Open → In Progress → Resolved → Closed)
+  - Customer and admin ticket views
+  - Full audit trail and ticket history
+### 📚 Knowledge Base
+  - Searchable documentation library
+  - Category-based article organization
+  - Article view tracking and analytics
+  - Customer self-service support
+  - Featured articles section
+  - Rich text article content
+  - Article versioning support
 
-- **Customer Portal** - Self-service portal for customers to manage services
-- **Support Ticket System** - Full-featured ticketing with categories, priorities, and assignments
-- **Knowledge Base** - Searchable documentation and help articles
-- **Service Catalog** - One-time and subscription-based IT services
-- **E-commerce Integration** - PayPal integration for online payments
-- **Admin Dashboard** - Complete administrative control panel
-- **User Management** - Role-based access control (RBAC)
-- **Subscription Management** - Recurring service billing
-- **Order Tracking** - Complete order lifecycle management
-- **Message System** - Internal messaging for users
+### 💼 Service Catalog & E-Commerce
+  - Dual service types: One-time services and recurring subscriptions
+  - Product catalog with detailed descriptions
+  - Shopping cart functionality
+  - Secure checkout process
+  - PayPal integration (sandbox and live modes)
+  - Order history and tracking
+  - Automatic invoice generation
+
+### 💳 Subscription Management
+  - Recurring billing for managed services
+  - Multiple subscription tiers (Basic, Standard, Premium, Enterprise)
+  - Automatic renewal processing
+  - Subscription activation/deactivation
+  - Customer subscription portal
+  - Billing history and statements
+
+### 👥 User Management & RBAC
+  - Role-based access control with 6 user roles:
+    - Super Admin (full system access)
+    - Admin (administrative functions)
+    - Manager (team and project management)
+    - Technician (support agent, ticket handling)
+    - Client Admin (customer account admin)
+    - Client User (end customer)
+  - User authentication with secure password hashing
+  - Session management
+  - Permission-based feature access
+  - User activity logging
+
+### 📊 Administrative Dashboard
+  - Real-time business metrics and KPIs
+  - Order management and processing
+  - Ticket queue overview
+  - Customer management
+  - Revenue tracking
+  - Service performance analytics
+  - User activity monitoring
+  - System health indicators
+### 💬 Internal Messaging System
+  - User-to-user messaging
+  - Message inbox with read/unread status
+  - Email-style message threading
+  - Message archiving
+  - Notification system
+
+### 🔐 Security Features
+  - Password hashing with bcrypt
+  - CSRF protection on all forms
+  - SQL injection prevention (PDO prepared statements)
+  - XSS attack prevention (input sanitization)
+  - Session hijacking protection
+  - Role-based authorization
+  - Secure payment processing
+
 
 ## Tech Stack
 
@@ -22,6 +83,16 @@ A comprehensive IT service management platform for managed service providers (MS
 - **Architecture:** MVC Pattern
 - **Payment:** PayPal SDK (Sandbox & Live)
 - **Server:** Apache/Nginx + PHP-FPM
+## Use Cases
+
+  This platform is perfect for:
+
+  1. **Small to Medium MSPs** - Complete business management system
+  2. **IT Consulting Firms** - Client management and service delivery
+  3. **Help Desk Operations** - Ticket tracking and customer support
+  4. **IT Service Businesses** - Service catalog and billing
+  5. **Educational Projects** - Learning enterprise application development
+  6. **Portfolio Projects** - Demonstrating full-stack development skills
 
 ## Project Structure
 
